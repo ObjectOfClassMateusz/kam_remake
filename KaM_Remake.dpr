@@ -445,6 +445,9 @@ uses
 
   //KM_PerfLog in 'src\unused\KM_PerfLog.pas', //unused
 
+  //@@
+
+
 
 {$IFDEF WDC}
   // Enable usage of 3Gb or 4Gb of RAM for Win32 Delphi application
@@ -472,7 +475,7 @@ uses
 
 begin
   Application.Initialize;
-  Application.Title := 'KaM Remake';
+  Application.Title := 'Knights and Merchants 40K';
 
   try
     gMain := TKMMain.Create;

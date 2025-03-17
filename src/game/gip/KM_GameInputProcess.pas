@@ -1078,7 +1078,10 @@ begin
                                     if fGame.Networking.IsHost then
                                       fGame.Networking.SendPlayerListAndRefreshPlayersSetup;}
                                   end;
-      gicGameAlertBeacon:         ExecGameAlertBeaconCmd(aCommand);
+      gicGameAlertBeacon:         begin
+                                    ExecGameAlertBeaconCmd(aCommand);
+                                    gGame.ShowMessageLocal(mkText, '@@', KMPOINT_ZERO);
+                                  end;
       gicGameHotkeySet:           P.SelectionHotkeys[IntParams[0]] := IntParams[1];
       gicGameMessageLogRead:      P.MessageLog[IntParams[0]].IsReadGIP := True;
       gicGameMessageListRead:     P.MessageLog.ReadAtCountGIP := IntParams[0];

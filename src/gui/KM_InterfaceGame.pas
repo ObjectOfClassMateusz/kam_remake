@@ -124,17 +124,17 @@ const
   // Layout of resources in Store
   STORE_RES_COUNT = 28;
   StoreResType: array [1..STORE_RES_COUNT] of TKMWareType =
-    (wtTrunk,    wtStone,   wtTimber,        wtIronOre,   wtGoldOre,
-     wtCoal,     wtIron,   wtGold,        wtWine,      wtCorn,
+    (wtIronOre,   wtGoldOre,  wtCoal,     wtIron,   wtGold, wtTrunk,    wtStone,   wtTimber,
+            wtWine,      wtCorn,
      wtBread,    wtFlour,   wtLeather,     wtSausage,  wtPig,
      wtSkin,     wtWoodenShield,  wtIronShield, wtLeatherArmor,     wtIronArmor,
      wtAxe,      wtSword,   wtLance,        wtPike, wtBow,
      wtCrossbow,  wtHorse,   wtFish);
 
   School_Order: array [0..13] of TKMUnitType = (
-    utSerf, utBuilder, utStonemason, utWoodcutter, utCarpenter,
+    utSerf, utBuilder, utRecruit, utStonemason, utWoodcutter, utCarpenter,
     utFisher, utFarmer, utBaker, utAnimalBreeder, utButcher,
-    utMiner, utMetallurgist, utSmith, utRecruit);
+    utMiner, utMetallurgist, utSmith);
 
   Barracks_Order: array [0..8] of TKMUnitType = (
     utMilitia, utAxeFighter, utSwordFighter, utBowman, utCrossbowman,
@@ -154,9 +154,9 @@ const
     HouseType: array [0..3] of TKMHouseType;
     UnitType: array [0..1] of TKMUnitType;
   end = (
-    (HouseType: (htQuarry, htNone, htNone, htNone);                      UnitType: (utStonemason, utNone)),
+    (HouseType: (htQuarry, htNone, htNone, htNone);                     UnitType: (utStonemason, utNone)),
     (HouseType: (htWoodcutters, htNone, htNone, htNone);                UnitType: (utWoodcutter, utNone)),
-    (HouseType: (htFishermans, htNone, htNone, htNone);                  UnitType: (utFisher, utNone)),
+    (HouseType: (htFishermans, htNone, htNone, htNone);                 UnitType: (utFisher, utNone)),
     (HouseType: (htFarm, htVineyard, htNone, htNone);                   UnitType: (utFarmer, utNone)),
     (HouseType: (htMill, htBakery, htNone, htNone);                     UnitType: (utBaker, utNone)),
     (HouseType: (htSwine, htStables, htNone, htNone);                   UnitType: (utAnimalBreeder, utNone)),

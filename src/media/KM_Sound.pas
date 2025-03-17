@@ -55,8 +55,14 @@ type
     procedure CheckOpenALError;
     function IsSoundPlaying(aIndex: Integer): Boolean;
 
-    function PlayWave(const aFile: UnicodeString; const aLoc: TKMPointF; aSoundType: TKMSoundType; aAttenuated: Boolean = True;
-                      aVolume: Single = 1; aFadeMusic: Boolean = False; aLoop: Boolean = False): Integer;
+    function PlayWave(const aFile: UnicodeString;
+                      const aLoc: TKMPointF;
+                       aSoundType: TKMSoundType;
+                       aAttenuated: Boolean = True;
+                      aVolume: Single = 1;
+                      aFadeMusic: Boolean = False;
+                      aLoop: Boolean = False): Integer;
+
     function PlaySound(aSoundID: TSoundFX; const aFile: UnicodeString; const Loc: TKMPointF; aSoundType: TKMSoundType;
                        aAttenuated: Boolean; aVolume: Single; aRadius: Single; aFadeMusic, aLooped: Boolean; aFromScript: Boolean = False): Integer;
     function CanAddLoopSound: Boolean;
@@ -95,8 +101,13 @@ type
 
     procedure PlayCitizen(aUnitType: TKMUnitType; aSound: TWarriorSpeech); overload;
     procedure PlayCitizen(aUnitType: TKMUnitType; aSound: TWarriorSpeech; const aLoc: TKMPointF); overload;
+
     procedure PlayWarrior(aUnitType: TKMUnitType; aSound: TWarriorSpeech); overload;
     procedure PlayWarrior(aUnitType: TKMUnitType; aSound: TWarriorSpeech; const aLoc: TKMPointF); overload;
+
+    procedure PlayWarrior(aUnitType: TKMUnitType; aSound: TWarriorSpeech; const aLoc: TKMPointF; rLanguage : STRING); overload;
+    //@@
+
     procedure Play(aSoundID: TSoundFX; aVolume: Single = 1); overload;
     procedure Play(aSoundID: TSoundFX; aLoc: TKMPoint; aAttenuated: Boolean = True; aVolume: Single = 1); overload;
     procedure Play(aSoundID: TSoundFX; aLoc: TKMPointF; aAttenuated: Boolean = True; aVolume: Single = 1); overload;
@@ -748,6 +759,40 @@ begin
   if FileExists(wave) then
     PlayWave(wave, aLoc, gRes.Sounds.GetSoundType(aSound), hasLoc, 1 + 3*Byte(hasLoc)); //Attenuate sounds when aLoc is valid
 end;
+
+
+
+
+
+
+
+
+//@@
+procedure TKMSoundPlayer.PlayWarrior(aUnitType: TKMUnitType; aSound: TWarriorSpeech; const aLoc: TKMPointF; rLanguage : STRING);
+var
+  wave: UnicodeString;
+  hasLoc: Boolean;
+  count: Byte;
+begin
+  if SKIP_SOUND or not fIsSoundInitialized then Exit;
+  if not (aUnitType in [WARRIOR_MIN..WARRIOR_MAX]) then Exit;
+
+  count := gRes.Sounds.WarriorSoundCount[aUnitType, aSound];
+  hasLoc := not KMSamePointF(aLoc, KMPOINTF_ZERO);
+
+  wave := gRes.Sounds.FileOfWarrior(aUnitType, aSound, Random(count),rLanguage);
+
+  if FileExists(wave) then
+    PlayWave(wave, aLoc, gRes.Sounds.GetSoundType(aSound), hasLoc, 1 + 3*Byte(hasLoc));
+    //Attenuate sounds when aLoc is valid
+end;
+//@@
+
+
+
+
+
+
 
 
 function TKMSoundPlayer.CanAddLoopSound: Boolean;

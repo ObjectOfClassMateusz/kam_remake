@@ -49,7 +49,7 @@
 {$ENDIF}
 
 //Use secure authentication unit (KM_NetAuthSecure)
-{$DEFINE USESECUREAUTH}
+//{$DEFINE USESECUREAUTH}
 
 //Enable perflog (should be disabled for release / release candidate versions)
 {$DEFINE PERFLOG}

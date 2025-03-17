@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Getting started with Knights and Merchants: Remake</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Getting started with Knights and Merchants:
+Remake</h1>
+</header>
+<p><strong>Brought to you by Krom, Lewin and Rey</strong></p>
+<hr />
+<p><a href="#system-requirements">System requirements</a> · <a
+href="#installation">Installation</a> · <a href="#gameplay">Gameplay</a>
+· <a href="#frequently-asked-questions">F.A.Q.</a> · <a
+href="#community-and-feedback">Community and feedback</a> · <a
+href="#known-bugs-and-limitations">Known bugs</a> · <a
+href="#source-code">Source Code</a> · <a href="#credits">Credits</a> ·
+<a href="#legal-notice">Legal notice</a></p>
+<hr />
+<h3 id="system-requirements"><img src="Readme/GUI_0310.gif" /> System
+requirements</h3>
+<ul>
+<li>Microsoft Windows or Linux with Wine;</li>
+<li>any dual-core processor;</li>
+<li>256MB or more of RAM;</li>
+<li>3D graphics accelerator OpenGL 1.5 compliant</li>
+</ul>
+<h3 id="installation"><img src="Readme/GUI_0303.gif" />
+Installation</h3>
+<ol type="1">
+<li>Obtain the original game (Knights and Merchants: The Peasants
+Rebellion):
+<ul>
+<li>Installers from original CD and GOG.com should just work.</li>
+<li>If you bought TPR from Steam, you need to run TPR at least once,
+otherwise Remake’s installer will be unable to detect it.</li>
+<li>If you use Linux, see <a
+href="https://github.com/reyandme/kam_remake/wiki/Game-installation-on-Linux"
+class="uri">https://github.com/reyandme/kam_remake/wiki/Game-installation-on-Linux</a></li>
+</ul></li>
+<li>Run the Remake installer and follow the installation
+instructions.</li>
+<li>The KaM Remake uses OpenGL for graphics. In case of visual issues or
+inability to launch the game, visit your graphics card manufacturer site
+to get the latest drivers available.</li>
+<li>Launch the mod - KaM_Remake.exe or from the Desktop/Start Menu if
+you chose to create shortcuts.</li>
+</ol>
+<h3 id="gameplay"><img src="Readme/GUI_0312.gif" /> Gameplay</h3>
+<h4 id="multiplayer">Multiplayer</h4>
+<p>To start a game, go to Multiplayer. You can pick any unused server,
+if you want to start a new lobby, or you can join an existing lobby.</p>
+<p>You can also create a local (LAN) server, using “Create server”
+button.</p>
+<p>If you want to create a new dedicated server for our community, see
+details here: <a
+href="https://github.com/reyandme/kam_remake/blob/master/Docs/Readme/technical.md"
+class="uri">https://github.com/reyandme/kam_remake/blob/master/Docs/Readme/technical.md</a></p>
+<h4 id="keyboard-shortcuts">Keyboard shortcuts</h4>
+<p><strong>The following shortcuts are available in the
+game:</strong></p>
+<ul>
+<li><strong>Esc</strong> closes the open message or active tab in the
+game menu</li>
+<li><strong>F1-F4</strong> opens corresponding tab in the gameplay
+menu</li>
+<li><strong>F5-F8</strong> sets the game speed to x1 / x3 / x6 / x10
+(speedup multiplier can be changed in game’s XML settings file)</li>
+<li><strong>F11</strong> will show debugging panel and menu</li>
+<li><strong>0-9</strong> will select units or houses assigned to with
+Ctrl + 0-9 keys</li>
+<li><strong>B</strong> will place a beacon on map, that your allies can
+hear and see</li>
+<li><strong>Spacebar</strong> will center the screen on last placed
+beacon/message</li>
+<li><strong>P</strong> pauses the game</li>
+<li>Holding the <strong>T</strong> button in multiplayer mode, will show
+player nicknames over their units</li>
+<li><strong>Delete</strong> deletes the open message in game</li>
+<li><strong>←↑→↓</strong> cursor keys will move you around the map</li>
+<li>Scrolling the <strong>Mouse wheel</strong> will zoom in and out</li>
+<li><strong>Backspace ←</strong> will reset zoom back to 100%</li>
+</ul>
+<p>For more detailed information about game shortcuts please visit our
+Wiki page:<br />
+<a href="https://github.com/reyandme/kam_remake/wiki/Controls"
+class="uri">https://github.com/reyandme/kam_remake/wiki/Controls</a></p>
+<h4 id="installing-add-on-maps">Installing add-on maps:</h4>
+<p>Maps should be added (in Remake’s directory) to Maps (for
+singleplayer), MapsMP (for multiplayer); there is also a directory for
+Campaigns.</p>
+<p>You can find additional community-made maps at <a
+href="https://knights-tavern.com"
+class="uri">https://knights-tavern.com</a>.</p>
+<h4 id="adding-custom-music">Adding custom music:</h4>
+<p>You can put your MP3/OGG files into the Music folder of the KaM
+Remake, and they will be included into the playlist automatically.</p>
+<h1 id="frequently-asked-questions"><img src="Readme/GUI_0311.gif" />
+Frequently Asked Questions</h1>
+<p><strong>Silent crashes:</strong><br />
+If the KaM Remake crashes silently during startup, please send the log
+file to our Discord channel, along with any other information that might
+be of use.</p>
+<p><strong>Low framerate:</strong><br />
+If you have ridiculously low framerate in game it might be because your
+OpenGL drivers are out of date. See the OpenGL version information in
+the top-left corner of the main menu, it should be at least 1.5.x. If it
+is less you need to update your graphics card drivers (check your card
+manufacturers website).</p>
+<p><strong>Game errors:</strong><br />
+Sometimes when something unexpected happens, you will get an “An error
+has occurred in the application” message. Please click the “Send Bug
+Report” button, to send the crash report to us, which will let us
+acknowledge and fix the issue. Enter your name and email address in the
+form, if you would like us to be able to contact you about the
+crash.</p>
+<p><strong>Anything else:</strong><br />
+See <a href="https://www.kamremake.com/faq/"
+class="uri">https://www.kamremake.com/faq/</a></p>
+<h2 id="community-and-feedback"><img src="Readme/GUI_0323.gif" />
+Community and Feedback</h2>
+<p>Join our community at <a href="https://discord.gg/UkkYceR"
+class="uri">https://discord.gg/UkkYceR</a>. We would love your comments,
+suggestions, thanks, etc.<br />
+If you can offer some help in Delphi coding, documentation, game
+artwork, sounds, translation or ideas for improvement - please drop us
+an email or write on Discord.</p>
+<h1 id="known-bugs-and-limitations"><img src="Readme/GUI_0304.gif" />
+Known bugs and limitations</h1>
+<p>Siege Workshop is not functional.</p>
+<h1 id="source-code"><img src="Readme/GUI_0308.gif" /> Source Code</h1>
+<p>The KaM Remake source code is available at our project page:<br />
+<a href="https://github.com/reyandme/kam_remake"
+class="uri">https://github.com/reyandme/kam_remake</a><br />
+Here you can find our game Wiki:<br />
+<a href="https://github.com/reyandme/kam_remake/wiki"
+class="uri">https://github.com/reyandme/kam_remake/wiki</a><br />
+We encourage you to submit bugs using built-in interface:<br />
+<a href="https://github.com/reyandme/kam_remake/issues"
+class="uri">https://github.com/reyandme/kam_remake/issues</a><br />
+or on our Discord channel.</p>
+<h1 id="credits"><img src="Readme/GUI_0314.gif" /> Credits</h1>
+<p>Lead programmer - Krom (<a href="mailto:kromster80@gmail.com"
+class="uri">mailto:kromster80@gmail.com</a>)<br />
+Programmer - Rey (<a href="mailto:kamremake.rey@gmail.com"
+class="uri">mailto:kamremake.rey@gmail.com</a>) Programmer - Lewin (<a
+href="mailto:lewinjh@gmail.com"
+class="uri">mailto:lewinjh@gmail.com</a>)<br />
+Programmer - Toxic (Advanced AI and random map generator) and many
+more…</p>
+<p>Thanks to Alex who introduced the core design back in 2008<br />
+Thanks to StarGazer, who drew Marketplace, new cursors and icons for
+user interface, also to Malin who drew marketplace wares.<br />
+Huge thanks to the KaM community and its active members (Free_sms_kam,
+Harold, Humbelum, JBSnorro, The Knight, Litude (Real Hotdog), Merchator,
+Nick, Thunderwolf, Vas, andreus, ZblCoder and many others) who helped us
+with decoding, advice, ideas and encouragement.<br />
+Icons from famfamfam and FatCow are used in the KaM Remake.</p>
+<h1 id="legal-notice"><img src="Readme/GUI_0322.gif" /> Legal
+notice</h1>
+<p>Commercial use is prohibited.<br />
+Any used names, symbols or other copyrighted material is the property of
+the respective owners.<br />
+We do not take any responsibility if this mod harms your software or
+hardware.<br />
+For obvious reasons publishing and/or sharing of this mod in any form is
+not allowed without this readme file.<br />
+You can upload this mod to your site/server/homepage, but please let us
+know first.<br />
+We assume that you (end user/player) own a licensed copy of the game
+KaM, otherwise you should buy the game before using this mod. Failing to
+do so will be breaching the license agreement.</p>
+</body>
+</html>

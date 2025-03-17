@@ -134,7 +134,8 @@ type
     function FileOfCitizen(aUnitType: TKMUnitType; aSound: TWarriorSpeech): UnicodeString;
     function FileOfNewSFX(aSFX: TSoundFXNew): UnicodeString;
     function FileOfNotification(aSound: TAttackNotification; aNumber: Byte): UnicodeString;
-    function FileOfWarrior(aUnitType: TKMUnitType; aSound: TWarriorSpeech; aNumber: Byte): UnicodeString;
+    function FileOfWarrior(aUnitType: TKMUnitType; aSound: TWarriorSpeech; aNumber: Byte;rLangLocate:STRING=''): UnicodeString;
+    //@@
 
     function GetSoundType(aNewSFX: TSoundFXNew): TKMSoundType; overload;
     function GetSoundType(aSFX: TSoundFX): TKMSoundType; overload;
@@ -157,10 +158,13 @@ const
     'rebel', 'rogue', 'warrior', 'vagabond');
 
   //TPR warriors reuse TSK voices in some languages, so if the specific ones don't exist use these
+  //@@??
   WARRIOR_SFX_FOLDER_BACKUP: array[WARRIOR_MIN..WARRIOR_MAX] of string = (
     '', '', '', '', '',
     '', '', '', '', '',
-    'bowman', 'lanceman', 'barbarian', 'cavalry');
+    'bowman', 'lanceman', 'warrior', 'cavalry');
+
+    //'bowman', 'lanceman', 'barbarian', 'cavalry'); @@
 
   WARRIOR_SFX: array[TWarriorSpeech] of string = (
     'select', 'eat', 'left', 'right', 'halve',
@@ -173,7 +177,7 @@ const
     WarriorVoice: TKMUnitType;
     SelectID, DeathID: byte;
   end = (
-    (WarriorVoice: utMilitia;       SelectID:3; DeathID:1), //utSerf
+    (WarriorVoice: utMilitia;       SelectID:3; DeathID:1), //utSerf     //@@ select and die sound from warriors for citizens XD
     (WarriorVoice: utAxeFighter;    SelectID:0; DeathID:0), //utWoodcutter
     (WarriorVoice: utBowman;        SelectID:2; DeathID:1), //utMiner
     (WarriorVoice: utSwordFighter;  SelectID:0; DeathID:2), //utAnimalBreeder
@@ -302,21 +306,24 @@ begin
   Result := FileOfWarrior(CITIZEN_SFX[aUnitType].WarriorVoice, aSound, soundID);
 end;
 
-
-function TKMResSounds.FileOfWarrior(aUnitType: TKMUnitType; aSound: TWarriorSpeech; aNumber: Byte): UnicodeString;
+//@@
+function TKMResSounds.FileOfWarrior(aUnitType: TKMUnitType; aSound: TWarriorSpeech; aNumber: Byte; rLangLocate:STRING='' ): UnicodeString;
 var
   S: UnicodeString;
 begin
-  S := ExeDir + 'data' + PathDelim + 'sfx' + PathDelim + 'speech.' + UnicodeString(fLocaleString) + PathDelim;
+  if rLangLocate <> '' then
+    S := ExeDir + 'data' + PathDelim + 'sfx' + PathDelim + 'speech.' + UnicodeString(rLangLocate) + PathDelim //@@
+  else
+    S := ExeDir + 'data' + PathDelim + 'sfx' + PathDelim + 'speech.' + UnicodeString(fLocaleString) + PathDelim;
+
   if fWarriorUseBackup[aUnitType] then
     S := S + WARRIOR_SFX_FOLDER_BACKUP[aUnitType]
   else
     S := S + WARRIOR_SFX_FOLDER[aUnitType];
   S := S + PathDelim + WARRIOR_SFX[aSound] + IntToStr(aNumber);
-  //All our files are WAV now. Don't accept SND files because TPR uses SND in a different
-  //format which can cause OpenAL to crash if someone installs KMR over TPR folder (e.g. Steam)
   Result := S+'.wav';
 end;
+//@@
 
 
 function TKMResSounds.FileOfNewSFX(aSFX: TSoundFXNew): UnicodeString;

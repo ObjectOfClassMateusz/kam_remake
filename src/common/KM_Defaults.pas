@@ -4,6 +4,11 @@ interface
 uses
   SysUtils;
 
+//@@
+type
+  RaceType = (rChaos , rImperium , rEldar , rOrc);
+//@@
+
 //Global constants
 const
 //|===================| <- constant name length
@@ -43,9 +48,9 @@ var
   GAME_VERSION: AnsiString;
   NET_PROTOCOL_REVISON: AnsiString; //Clients of this version may connect to the dedicated server
 const
-  GAME_TITLE            = 'Knights and Merchants Remake';
-  SETTINGS_FILE         = 'KaM Remake Settings.xml';
-  SERVER_SETTINGS_FILE  = 'KaM Remake Server Settings.ini';
+  GAME_TITLE            = 'Knights and Merchants 40K ';
+  SETTINGS_FILE         = 'KaM40K Settings.xml';
+  SERVER_SETTINGS_FILE  = 'KaM40K Server Settings.ini';
   DEFAULT_LOCALE: AnsiString = 'eng';
 
   MAX_NICKNAME_LENGTH = 16;
@@ -61,7 +66,7 @@ const
   //Also there is a technical limit, of how many ticks we can calculate per update
   MAX_TICKS_PER_GAME_UPDATE = 100;
 {$IFDEF DEBUG}
-  DEBUG_CFG = True; //Debug preset for most usable debug options. ON for Debug build configuration
+  DEBUG_CFG = False; //Debug preset for most usable debug options. ON for Debug build configuration
 {$ELSE}
   DEBUG_CFG = False; //Debug preset for most usable debug options. OFF for Release build configuration
 {$ENDIF}
@@ -385,10 +390,11 @@ const
   FISH_RESTORE = 0.5;
 
 
-  DEFAULT_HITPOINT_RESTORE  = 100;        //1 hitpoint is restored to units every X ticks (using Humbelum's advice)
+  DEFAULT_HITPOINT_RESTORE  = 100; //1 hitpoint is restored to units every X ticks (using Humbelum's advice)
+  //@Regeneracja
   TIME_BETWEEN_MESSAGES     = 4*600;      //Time between messages saying house is unoccupied or unit is hungry. In KaM it's 4 minutes
 
-  RANGE_WATCHTOWER_MAX  = 6.99; //Measured in KaM. Distance from the doorway of tower
+  RANGE_WATCHTOWER_MAX  = 10; //Measured in KaM. Distance from the doorway of tower
   RANGE_WATCHTOWER_MIN  = 0; //In KaM towers have no minimum range, they will shoot any unit less than the range
 
   LINK_RADIUS = 5; //Radius to search for groups to link to after being trained at the barracks (measured from KaM)

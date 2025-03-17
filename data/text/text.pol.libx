@@ -11,7 +11,7 @@
 10:Kuźnia Zbroi
 11:Spichrz
 12:Stajnia
-13:Szkoła
+13:Teleporter Relay Beacon
 14:Kamieniołom
 15:Mennica
 16:Chlew
@@ -31,11 +31,11 @@
 30:Pnie drzew
 31:Kamienie
 32:Drewno
-33:Ruda żelaza
-34:Ruda złota
-35:Węgiel
+33:Requisition
+34:Recruitment Power
+35:Energy
 36:Żelazo
-37:Złoto
+37:Relay Beacon Battery
 38:Wino
 39:Ziarno
 40:Chleb
@@ -53,7 +53,7 @@
 52:Lanca
 53:Halabarda
 54:Łuk
-55:Kusza
+55:Bolter
 56:Konie
 57:Ryby
 58:Pomocnik
@@ -70,19 +70,19 @@
 69:Kowal
 70:Hutnik
 71:Rekrut
-72:Żołdak
+72:Cultist
 73:Topornik
 74:Piechur z mieczem
-75:Łucznik
-76:Kusznik
+75:Imperial guardsman
+76:Space marines
 77:Piechur z lancą
 78:Pikinier
 79:Lekka jazda
 80:Ciężka jazda
 81:Barbarzyńca
 82:Rebeliant
-83:Pachołek
-84:Wojownik
+83:Eldar Rangers
+84:Howling Banshee
 85:Włóczęga
 86:Katapulta
 87:Balista

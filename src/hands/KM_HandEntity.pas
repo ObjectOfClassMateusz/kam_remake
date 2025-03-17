@@ -28,7 +28,7 @@ type
     procedure Save(SaveStream: TKMemoryStream); override;
 
     property EntityType: TKMHandEntityType read GetType;
-    property Owner: TKMHandID read GetOwner write SetOwner;
+    property Owner: TKMHandID read GetOwner write SetOwner;  //@@
 
     property PositionForDisplayF: TKMPointF read GetPositionForDisplayF;
 
@@ -128,7 +128,7 @@ begin
 end;
 
 
-function TKMHandEntity.GetOwner: TKMHandID;
+function TKMHandEntity.GetOwner: TKMHandID; //@@
 begin
   if Self = nil then Exit(HAND_NONE);
 

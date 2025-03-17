@@ -2,7 +2,8 @@ unit KM_UnitActionFight;
 {$I KaM_Remake.inc}
 interface
 uses
-  Classes, KM_CommonClasses, KM_Defaults, KM_CommonUtils, KromUtils, Math, SysUtils, KM_Units, KM_Points;
+  Classes, KM_CommonClasses, KM_Defaults, KM_CommonUtils, KromUtils, Math, SysUtils, KM_Units,
+  KM_Points ,KM_Game , KM_GameTypes ,KM_ResLocales;//@@
 
 
 //Fight until we die or the opponent dies
@@ -157,6 +158,8 @@ begin
 end;
 
 
+
+
 procedure TKMUnitActionFight.MakeSound(IsHit: Boolean);
 var
   //Battlecry is the most noticable random sound, we would like to repeat it exactly the same in each replay (?)
@@ -166,11 +169,23 @@ begin
   makeBattleCry := KaMRandom(20{$IFDEF RNG_SPY}, 'TKMUnitActionFight.MakeSound'{$ENDIF}) = 0;
 
   //Do not play sounds if unit is invisible to gMySpectator
-  //We should not use KaMRandom below this line because sound playback depends on FOW and is individual for each player
+  //We should not use KaMRandom below this line because sound
+  //playback depends on FOW and is individual for each player
+
   if gMySpectator.FogOfWar.CheckTileRevelation(fUnit.Position.X, fUnit.Position.Y) < 255 then Exit;
 
   if makeBattleCry then
-    gSoundPlayer.PlayWarrior(fUnit.UnitType, spBattleCry, fUnit.PositionF);
+    case fUnit.Owner of  // fUnit.Owner = n.  n+1=number on player in editor
+
+      1: gSoundPlayer.PlayWarrior(fUnit.UnitType, spBattleCry, fUnit.PositionF   ,'rus');
+      2: gSoundPlayer.PlayWarrior(fUnit.UnitType, spBattleCry, fUnit.PositionF   ,'hun');     //@@
+      else gSoundPlayer.PlayWarrior(fUnit.UnitType, spBattleCry, fUnit.PositionF );
+    end;
+
+
+  //if makeBattleCry then
+    //gGame.ShowMessageLocal(mkText, IntToStr( fUnit.Owner ), KMPOINT_ZERO);
+
 
   case fUnit.UnitType of
     utCrossbowman: gSoundPlayer.Play(sfxCrossbowDraw, fUnit.PositionF); // Aiming

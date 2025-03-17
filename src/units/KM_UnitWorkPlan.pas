@@ -291,7 +291,7 @@ begin
                           ResourcePlan(wtNone,0,wtNone,0,wtCoal);
                           GatheringScript := gsCoalMiner;
                           SubActAdd(haWork1,1);
-                          SubActAdd(haWork2,23);
+                          SubActAdd(haWork2,7);     //@@faster coal getting
                           SubActAdd(haWork5,1);
                         end else
                           ResourceDepleted := True;
